@@ -1,0 +1,32 @@
+name: running_trainer
+description: A fitness app.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  shared_preferences: ^0.5.3+4
+  geolocator: ^5.1.4+2
+  numberpicker: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.7.3
+
+
+flutter:
+  fonts:
+    - family: SUNDAY
+      fonts:
+        - asset: assets/fonts/SUNDAY.ttf
+  assets:
+    - assets/running.gif
+  uses-material-design: true
