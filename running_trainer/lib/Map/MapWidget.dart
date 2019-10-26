@@ -3,16 +3,16 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:running_trainer/Utils/gps.dart';
 import 'package:running_trainer/Utils/localizations.dart';
-import 'package:running_trainer/Utils/run.dart';
+import 'package:running_trainer/Utils/track.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 /// A map widget with gps handler
 class MapWidget extends StatefulWidget {
   // ignore: public_member_api_docs
-  MapWidget({@required this.run, Key key, this.height, this.width}) : super(key: key);
+  MapWidget({@required this.track, Key key, this.height, this.width}) : super(key: key);
 
-  /// The run that should be shown
-  final Run run;
+  /// The track that should be shown
+  final Track track;
   /// The height of the map widget
   final double height;
   /// The width of the map widget
@@ -66,7 +66,7 @@ class MapWidgetState extends State<MapWidget> {
             height: widget.height,
             width: widget.width,
             child: GoogleMap(
-              polylines: Set.from(widget.run.lines.map((Line line) => Polyline(
+              polylines: Set.from(widget.track.lines.map((Line line) => Polyline(
                   polylineId: PolylineId(line.start.toString()),
                   visible: true,
                   points: [

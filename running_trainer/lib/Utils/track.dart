@@ -22,20 +22,20 @@ class Line {
   }
 }
 
-/// Describes a run
-class Run {
+/// Describes a track
+class Track {
   String _id;
 
-  /// Name of this run
+  /// Name of this track
   String name;
 
-  /// The start time of this run
+  /// The start time of this track
   DateTime start;
 
-  /// The end time of this run
+  /// The end time of this track
   DateTime end;
 
-  /// The active running time 
+  /// The active trackning time 
   Duration activeTime;
 
   /// The distance in km
@@ -47,8 +47,8 @@ class Run {
   /// All tracked positions
   List<Position> _positions;
 
-  /// Creates a new run
-  Run({this.name, this.start, this.end, this.activeTime, this.distance, this.averageSpeed}) {
+  /// Creates a new track
+  Track({this.name, this.start, this.end, this.activeTime, this.distance, this.averageSpeed}) {
     if (start == null) {
       start = DateTime.now();
       activeTime = Duration(seconds: 0);
@@ -60,15 +60,15 @@ class Run {
     }
   }
 
-  /// Returns if the run is still active or already finished
+  /// Returns if the track is still active or already finished
   bool get isFinished => end != null;
 
-  /// Returns all positions of this run
+  /// Returns all positions of this track
   List<Position> get positions {
     return _positions ??= positionsFromJson();
   }
 
-  /// Returns all lines of this run
+  /// Returns all lines of this track
   List<Line> get lines {
     if (positions.length <= 1) {
       return [];
@@ -82,7 +82,7 @@ class Run {
     return lines;
   }
 
-  /// Add a new position to this run
+  /// Add a new position to this track
   /// 
   /// This automatically recalculates all values
   void addPosition(Position pos) {
@@ -103,7 +103,7 @@ class Run {
     return distance / (activeTime.inSeconds / 3600); 
   }
 
-  /// Calculates the active running time
+  /// Calculates the active trackning time
   Duration calculateActiveTime() {
     return start.difference(_positions[_positions.length - 1].timestamp);
   }
@@ -116,12 +116,12 @@ class Run {
     ).distance;
   }
 
-  /// Calculates the distance of the whole run
+  /// Calculates the distance of the whole track
   double calculateDistance({LengthUnit lengthUnit = LengthUnit.Kilometer}) {
     return lines.map((Line line) => line.distance).reduce((double d1, double d2) => d1 + d2);
   }
 
-  /// Finishes ans saves a run
+  /// Finishes ans saves a track
   void finish() {
     if (!isFinished) {
       end = _positions[_positions.length].timestamp;
@@ -137,9 +137,9 @@ class Run {
             .map((Map<String, dynamic> json) => Position.fromMap);
   }
 
-  /// Loads a run from json
-  factory Run.fromJson(Map<String, dynamic> json) {
-    return Run(
+  /// Loads a track from json
+  factory Track.fromJson(Map<String, dynamic> json) {
+    return Track(
       name: json['name'],
       start: DateTime.parse(json['start']),
       end: DateTime.parse(json['end']),
@@ -149,7 +149,7 @@ class Run {
     );
   }
 
-  /// Converts this run to a json
+  /// Converts this track to a json
   /// 
   /// The [distance] must be saved separately, 
   /// because this can be a lot of data and should not be loaded a once
@@ -164,9 +164,9 @@ class Run {
     });
   }
 
-  /// Saves this run in the storage
+  /// Saves this track in the storage
   void save() {
-    Storage.setString(Keys.run(_id), toJson());
+    Storage.setString(Keys.track(_id), toJson());
     Storage.setString(Keys.positions(_id), json.encode(positions));
   }
 }

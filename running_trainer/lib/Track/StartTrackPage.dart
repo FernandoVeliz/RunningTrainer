@@ -4,20 +4,20 @@ import 'package:running_trainer/Map/MapWidget.dart';
 import 'package:running_trainer/Start/StartButton.dart';
 import 'package:running_trainer/Utils/history.dart';
 import 'package:running_trainer/Utils/localizations.dart';
-import 'package:running_trainer/Utils/run.dart';
+import 'package:running_trainer/Utils/track.dart';
 
-/// Page to start a run
-class StartRunPage extends StatefulWidget {
+/// Page to start a track
+class StartTrackPage extends StatefulWidget {
   // ignore: public_member_api_docs
-  StartRunPage({Key key}) : super(key: key);
+  StartTrackPage({Key key}) : super(key: key);
 
   @override
-  StartRunPageState createState() => StartRunPageState();
+  StartTrackPageState createState() => StartTrackPageState();
 }
 
-/// State for the start run page
-class StartRunPageState extends State<StartRunPage> {
-  final Run _run = Run();
+/// State for the start track page
+class StartTrackPageState extends State<StartTrackPage> {
+  Track _track = Track();
   TextEditingController _routeController;
   String _currentRoute;
   //FocusNode _input; 
@@ -26,6 +26,14 @@ class StartRunPageState extends State<StartRunPage> {
   void initState() {
     _routeController = TextEditingController();
     super.initState();
+  }
+
+  bool get _readyToStart {
+    return _currentName != null;
+  }
+
+  String get _currentName {
+    return _routeController.text.isNotEmpty ? _routeController.text : _currentRoute;
   }
 
   @override
@@ -43,7 +51,7 @@ class StartRunPageState extends State<StartRunPage> {
             padding: EdgeInsets.only(top: 20),
             child: TopicWidget(
               padding: EdgeInsets.only(top: 10, left: 5, right: 5),
-              id: 'start_run',
+              id: 'start_track',
               child: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
                   return Column(
@@ -58,7 +66,7 @@ class StartRunPageState extends State<StartRunPage> {
                             flex: 79,
                             child: Center(
                               child: Text(
-                                AppLocalizations.of(context).newRun, 
+                                AppLocalizations.of(context).newTrack, 
                                 style: TextStyle(color: Colors.black54),
                               )
                             )
@@ -69,7 +77,7 @@ class StartRunPageState extends State<StartRunPage> {
                           )          
                         ]
                       ),
-                      MapWidget(run: _run, height: constraints.maxHeight - 200),
+                      MapWidget(track: _track, height: constraints.maxHeight - 200),
                       Row(
                         children: <Widget>[
                           Expanded(
@@ -83,7 +91,7 @@ class StartRunPageState extends State<StartRunPage> {
                                   border: OutlineInputBorder(),
                                   labelText: AppLocalizations.of(context).newRoute,
                                 ),
-                                onSubmitted: (String text) => null,
+                                onChanged: (_) => setState(() => null),
                               ),
                             ),
                           ),
@@ -103,8 +111,14 @@ class StartRunPageState extends State<StartRunPage> {
                             child: DropdownButton<String>(
                               hint: Text(AppLocalizations.of(context).lastRoutes),
                               value: _currentRoute,
-                              onChanged: (String value) => setState(() => _currentRoute = value),
-                              items: History.getAllRuns().map((run) => run.name).toSet().map((String name) =>
+                              onChanged: (String value) {
+                                final Track track = History.getAllTracks().where((Track track) => track.name == value).last;
+                                setState(() {
+                                  _currentRoute = value;
+                                  _track = track;
+                                });
+                              },
+                              items: History.getAllTracks().map((track) => track.name).toSet().map((String name) =>
                                 DropdownMenuItem<String>(
                                   value: name,
                                   child: Text(name),
@@ -117,7 +131,8 @@ class StartRunPageState extends State<StartRunPage> {
                       Padding(
                         padding: EdgeInsets.only(top: 10),
                         child: StartButton(
-                          onPressed: () => null,
+                          enabled: _readyToStart,
+                          onPressed: () => print('pressed'),
                         ),
                       )
                     ]

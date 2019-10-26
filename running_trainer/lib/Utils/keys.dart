@@ -4,6 +4,6 @@ class Keys {
   static const weekAimDistance = 'week-aim-distance';
   static const monthAimDistance = 'month-aim-distance';
 
-  static run(String id) => 'run-$id';
+  static track(String id) => 'track-$id';
   static positions(String id) => 'positions-$id';
 }

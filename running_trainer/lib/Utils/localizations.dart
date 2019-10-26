@@ -13,10 +13,10 @@ class AppLocalizations {
   static const Map<String, Map<String, dynamic>> _localizedValues = {
     // List of all Strings...
     'de': {
-      'title': 'Running Trainer',
-      'newRun': 'Neuer Lauf',
+      'title': 'Trackning Trainer',
+      'newTrack': 'Neuer Lauf',
       'newTraining': 'Neues Training',
-      'lastRuns': 'Letzten Läufe',
+      'lastTracks': 'Letzten Läufe',
       'lastWeek': 'Letzte Woche',
       'lastMonth': 'Letzter Monat',
       'minutes': 'Minuten (min)',
@@ -27,7 +27,7 @@ class AppLocalizations {
       'distancePerWeek': 'Distanz (km) pro Woche',
       'timePerMonth': 'Zeit (min) pro Monat',
       'timePerWeek': 'Zeit (min) pro Woche',
-      'startRun': 'Lauf starten',
+      'startTrack': 'Lauf starten',
       'accuracy': 'Genauigkeit',
       'route': 'Route',
       'name': 'Name',
@@ -37,10 +37,10 @@ class AppLocalizations {
       'lastRoutes': 'Alte Route'
     },
     'en': {
-      'title': 'Running Trainer',
-      'newRun': 'New run',
+      'title': 'Trackning Trainer',
+      'newTrack': 'New track',
       'newTraining': 'New training',
-      'lastRuns': 'Last runs',
+      'lastTracks': 'Last tracks',
       'lastWeek': 'Last week',
       'lastMonth': 'Last month',
       'minutes': 'Minutes (min)',
@@ -51,7 +51,7 @@ class AppLocalizations {
       'distancePerWeek': 'Distance (km) per week',
       'timePerMonth': 'Time (min) per month',
       'timePerWeek': 'Time (min) per week',
-      'startRun': 'Start run',
+      'startTrack': 'Start track',
       'accuracy': 'Accuracy',
       'route': 'Route',
       'name': 'Name',
@@ -68,8 +68,8 @@ class AppLocalizations {
   }
 
   // ignore: public_member_api_docs
-  String get newRun {
-    return _localizedValues[locale.languageCode]['newRun'];
+  String get newTrack {
+    return _localizedValues[locale.languageCode]['newTrack'];
   }
 
   // ignore: public_member_api_docs
@@ -78,8 +78,8 @@ class AppLocalizations {
   }
 
   // ignore: public_member_api_docs
-  String get lastRuns {
-    return _localizedValues[locale.languageCode]['lastRuns'];
+  String get lastTracks {
+    return _localizedValues[locale.languageCode]['lastTracks'];
   }
 
   // ignore: public_member_api_docs
@@ -133,8 +133,8 @@ class AppLocalizations {
   }
 
   // ignore: public_member_api_docs
-  String get startRun {
-    return _localizedValues[locale.languageCode]['startRun'];
+  String get startTrack {
+    return _localizedValues[locale.languageCode]['startTrack'];
   }
 
   // ignore: public_member_api_docs

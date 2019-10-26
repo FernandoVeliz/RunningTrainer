@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:running_trainer/Run/StartRunPage.dart';
+import 'package:running_trainer/Track/StartTrackPage.dart';
 import 'package:running_trainer/Utils/storage.dart';
 import 'package:running_trainer/Utils/user.dart';
 import 'package:running_trainer/Home/Topic/TopicWidget.dart';
@@ -51,11 +51,11 @@ class HomePageState extends State<HomePage> {
             child: OverviewWidget(),
           ),
           TopicWidget(
-            id: 'start_run',
+            id: 'start_track',
             onTap: () => Navigator.push(
               context, 
               MaterialPageRoute(builder: (context) => Scaffold(
-                body: StartRunPage()
+                body: StartTrackPage()
               ))
             ),
             child: Row(
@@ -68,7 +68,7 @@ class HomePageState extends State<HomePage> {
                   flex: 79,
                   child: Center(
                     child: Text(
-                      AppLocalizations.of(context).newRun, 
+                      AppLocalizations.of(context).newTrack, 
                       style: TextStyle(color: Colors.black54),
                     )
                   )
@@ -119,14 +119,14 @@ class HomePageState extends State<HomePage> {
                           flex: 80,
                           child: Center(
                             child: Text(
-                              AppLocalizations.of(context).lastRuns, 
+                              AppLocalizations.of(context).lastTracks, 
                               style: TextStyle(color: Colors.black54)
                             )
                           )
                         ),
                         Expanded(
                           flex: 7,
-                          child: Text(History.getAllRuns().length.toString(), style: TextStyle(
+                          child: Text(History.getAllTracks().length.toString(), style: TextStyle(
                             color: Colors.green,
                             fontSize: 20
                           ),),
@@ -134,7 +134,7 @@ class HomePageState extends State<HomePage> {
                       ],
                     )
                   ]..addAll(
-                    History.getAllRuns().map((run) {
+                    History.getAllTracks().map((track) {
                       return Container();
                     }).toList()
                   ),
