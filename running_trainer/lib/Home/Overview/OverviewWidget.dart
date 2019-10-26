@@ -31,8 +31,8 @@ class OverviewState extends State<OverviewWidget> with SingleTickerProviderState
           child: TabBarView(
             controller: _tabController,
             children: <Widget>[
-              StatsWidget(isWeek: true, header: AppLocalizations.of(context).last_week),
-              StatsWidget(isWeek: false, header: AppLocalizations.of(context).last_month)
+              StatsWidget(isWeek: true, header: AppLocalizations.of(context).lastWeek),
+              StatsWidget(isWeek: false, header: AppLocalizations.of(context).lastMonth)
             ],
           ),
         ),

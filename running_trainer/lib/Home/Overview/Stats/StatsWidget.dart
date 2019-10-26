@@ -125,7 +125,7 @@ class StatsState extends State<StatsWidget> {
                         child: Text(
                           timeAimIsSet ?
                             '$currentTime/$aimTime min' :
-                            '$currentTime  -  ${AppLocalizations.of(context).set_time_aim}', 
+                            '$currentTime  -  ${AppLocalizations.of(context).setTimeAim}', 
                           style: TextStyle(
                             color: Colors.black54
                           ),
@@ -152,7 +152,7 @@ class StatsState extends State<StatsWidget> {
                           child: Text(
                             distanceAimIsSet ?
                               '$currentDistance/$aimDistance km' :
-                              '$currentDistance  -  ${AppLocalizations.of(context).set_distance_aim}',  
+                              '$currentDistance  -  ${AppLocalizations.of(context).setDistanceAim}',  
                             style: TextStyle(
                               color: Colors.black54
                             ),

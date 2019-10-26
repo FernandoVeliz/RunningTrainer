@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:running_trainer/Home/HomePage.dart';
-import 'package:running_trainer/Run/RunPage.dart';
 import 'package:running_trainer/Utils/localizations.dart';
 
 void main() => runApp(App());
@@ -15,7 +14,6 @@ class App extends StatelessWidget {
       title: 'RunningTrainer',
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => HomePage(),
-        '/run': (BuildContext context) => RunPage(),
       },
       theme: ThemeData(
         accentColor: Colors.green,

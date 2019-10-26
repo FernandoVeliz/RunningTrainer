@@ -10,101 +10,172 @@ class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static Map<String, Map<String, dynamic>> _localizedValues = {
+  static const Map<String, Map<String, dynamic>> _localizedValues = {
     // List of all Strings...
     'de': {
       'title': 'Running Trainer',
-      'new_run': 'Neuer Lauf',
-      'new_training': 'Neues Training',
-      'last_runs': 'Letzten Läufe',
-      'last_week': 'Letzte Woche',
-      'last_month': 'Letzter Monat',
+      'newRun': 'Neuer Lauf',
+      'newTraining': 'Neues Training',
+      'lastRuns': 'Letzten Läufe',
+      'lastWeek': 'Letzte Woche',
+      'lastMonth': 'Letzter Monat',
       'minutes': 'Minuten (min)',
       'distance': 'Distanz (km)',
-      'set_time_aim': 'Klicke zum setzen deines Zeitziels',
-      'set_distance_aim': 'Klicke zum setze deines Distanzziels',
-      'distance_per_month': 'Distanz (km) pro Monat',
-      'distance_per_week': 'Distanz (km) pro Woche',
-      'time_per_month': 'Zeit (min) pro Monat',
-      'time_per_week': 'Zeit (min) pro Woche',
+      'setTimeAim': 'Klicke zum setzen deines Zeitziels',
+      'setDistanceAim': 'Klicke zum setze deines Distanzziels',
+      'distancePerMonth': 'Distanz (km) pro Monat',
+      'distancePerWeek': 'Distanz (km) pro Woche',
+      'timePerMonth': 'Zeit (min) pro Monat',
+      'timePerWeek': 'Zeit (min) pro Woche',
+      'startRun': 'Lauf starten',
+      'accuracy': 'Genauigkeit',
+      'route': 'Route',
+      'name': 'Name',
+      'setName': 'Benenne die Strecke oder wähle eine alte aus:',
+      'or': 'oder',
+      'newRoute': 'Neu route',
+      'lastRoutes': 'Alte Route'
     },
     'en': {
       'title': 'Running Trainer',
-      'new_run': 'New run',
-      'new_training': 'New training',
-      'last_runs': 'Last runs',
-      'last_week': 'Last week',
-      'last_month': 'Last month',
+      'newRun': 'New run',
+      'newTraining': 'New training',
+      'lastRuns': 'Last runs',
+      'lastWeek': 'Last week',
+      'lastMonth': 'Last month',
       'minutes': 'Minutes (min)',
       'distance': 'Distance (km)',
-      'set_time_aim': 'Click to setup your time aim',
-      'set_distance_aim': 'Click to setup your distance aim',
-      'distance_per_month': 'Distance (km) per month',
-      'distance_per_week': 'Distance (km) per week',
-      'time_per_month': 'Time (min) per month',
-      'time_per_week': 'Time (min) per week',
+      'setTimeAim': 'Click to setup your time aim',
+      'setDistanceAim': 'Click to setup your distance aim',
+      'distancePerMonth': 'Distance (km) per month',
+      'distancePerWeek': 'Distance (km) per week',
+      'timePerMonth': 'Time (min) per month',
+      'timePerWeek': 'Time (min) per week',
+      'startRun': 'Start run',
+      'accuracy': 'Accuracy',
+      'route': 'Route',
+      'name': 'Name',
+      'setName': 'Name the track or select an old one:',
+      'or': 'or',
+      'newRoute': 'New route',
+      'lastRoutes': 'Old route',
     }
   };
   // All getters
+  // ignore: public_member_api_docs
   String get title {
     return _localizedValues[locale.languageCode]['title'];
   }
 
-  String get new_run {
-    return _localizedValues[locale.languageCode]['new_run'];
+  // ignore: public_member_api_docs
+  String get newRun {
+    return _localizedValues[locale.languageCode]['newRun'];
   }
 
-  String get new_training {
-    return _localizedValues[locale.languageCode]['new_training'];
+  // ignore: public_member_api_docs
+  String get newTraining {
+    return _localizedValues[locale.languageCode]['newTraining'];
   }
 
-  String get last_runs {
-    return _localizedValues[locale.languageCode]['last_runs'];
+  // ignore: public_member_api_docs
+  String get lastRuns {
+    return _localizedValues[locale.languageCode]['lastRuns'];
   }
 
-  String get last_week {
-    return _localizedValues[locale.languageCode]['last_week'];
+  // ignore: public_member_api_docs
+  String get lastWeek {
+    return _localizedValues[locale.languageCode]['lastWeek'];
   }
 
-  String get last_month {
-    return _localizedValues[locale.languageCode]['last_month'];
+  // ignore: public_member_api_docs
+  String get lastMonth {
+    return _localizedValues[locale.languageCode]['lastMonth'];
   }
 
+  // ignore: public_member_api_docs
   String get minutes {
     return _localizedValues[locale.languageCode]['minutes'];
   }
 
+  // ignore: public_member_api_docs
   String get distance {
     return _localizedValues[locale.languageCode]['distance'];
   }
 
-  String get set_time_aim {
-    return _localizedValues[locale.languageCode]['set_time_aim'];
+  // ignore: public_member_api_docs
+  String get setTimeAim {
+    return _localizedValues[locale.languageCode]['setTimeAim'];
   }
 
-  String get set_distance_aim {
-    return _localizedValues[locale.languageCode]['set_distance_aim'];
+  // ignore: public_member_api_docs
+  String get setDistanceAim {
+    return _localizedValues[locale.languageCode]['setDistanceAim'];
   }
 
-  String get distance_per_month {
-    return _localizedValues[locale.languageCode]['distance_per_month'];
+  // ignore: public_member_api_docs
+  String get distancePerMonth {
+    return _localizedValues[locale.languageCode]['distancePerMonth'];
   }
 
-  String get distance_per_week {
-    return _localizedValues[locale.languageCode]['distance_per_week'];
+  // ignore: public_member_api_docs
+  String get distancePerWeek {
+    return _localizedValues[locale.languageCode]['distancePerWeek'];
   }
 
-  String get time_per_month {
-    return _localizedValues[locale.languageCode]['time_per_month'];
+  // ignore: public_member_api_docs
+  String get timePerMonth {
+    return _localizedValues[locale.languageCode]['timePerMonth'];
   }
 
-  String get time_per_week {
-    return _localizedValues[locale.languageCode]['time_per_week'];
+  // ignore: public_member_api_docs
+  String get timePerWeek {
+    return _localizedValues[locale.languageCode]['timePerWeek'];
+  }
+
+  // ignore: public_member_api_docs
+  String get startRun {
+    return _localizedValues[locale.languageCode]['startRun'];
+  }
+
+  // ignore: public_member_api_docs
+  String get accuracy {
+    return _localizedValues[locale.languageCode]['accuracy'];
+  }
+
+  // ignore: public_member_api_docs
+  String get route {
+    return _localizedValues[locale.languageCode]['route'];
+  }
+
+  // ignore: public_member_api_docs
+  String get name {
+    return _localizedValues[locale.languageCode]['name'];
+  }
+
+  // ignore: public_member_api_docs
+  String get setName {
+    return _localizedValues[locale.languageCode]['setName'];
+  }
+
+  // ignore: public_member_api_docs
+  String get or {
+    return _localizedValues[locale.languageCode]['or'];
+  }
+
+  // ignore: public_member_api_docs
+  String get newRoute {
+    return _localizedValues[locale.languageCode]['newRoute'];
+  }
+
+  // ignore: public_member_api_docs
+  String get lastRoutes {
+    return _localizedValues[locale.languageCode]['lastRoutes'];
   }
   // end all getters
 }
-
+// ignore: public_member_api_docs
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+  // ignore: public_member_api_docs
   const AppLocalizationsDelegate();
 
   @override

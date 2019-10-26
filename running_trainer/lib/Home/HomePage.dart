@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:running_trainer/Run/StartRunPage.dart';
 import 'package:running_trainer/Utils/storage.dart';
 import 'package:running_trainer/Utils/user.dart';
-import 'Topic/TopicWidget.dart';
-import 'Overview/OverviewWidget.dart';
+import 'package:running_trainer/Home/Topic/TopicWidget.dart';
+import 'package:running_trainer/Home/Overview/OverviewWidget.dart';
 import 'package:running_trainer/Utils/history.dart';
-import 'package:running_trainer/Utils/run.dart';
 import 'package:running_trainer/Utils/localizations.dart';
 
+/// The home page view with the list of options
 class HomePage extends StatefulWidget {
+  // ignore: public_member_api_docs
   HomePage({Key key}) : super(key: key);
 
   @override
   HomePageState createState() => HomePageState();
 }
 
+/// State for the home page
 class HomePageState extends State<HomePage> {
-  bool loaded = false;
+  bool _loaded = false;
 
   @override
   void initState() {
@@ -24,14 +27,14 @@ class HomePageState extends State<HomePage> {
       await Storage.init();
       await User.init();
       await History.init();
-      setState(() => loaded = true);
+      setState(() => _loaded = true);
     }();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!loaded) {
+    if (!_loaded) {
       return Scaffold(
         body: Center(
           child: Image.asset('assets/running.gif', width: 40, height: 40),
@@ -44,9 +47,17 @@ class HomePageState extends State<HomePage> {
         shrinkWrap: true,
         children: <Widget>[
           TopicWidget(
+            id: 'overview',
             child: OverviewWidget(),
           ),
           TopicWidget(
+            id: 'start_run',
+            onTap: () => Navigator.push(
+              context, 
+              MaterialPageRoute(builder: (context) => Scaffold(
+                body: StartRunPage()
+              ))
+            ),
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -57,7 +68,7 @@ class HomePageState extends State<HomePage> {
                   flex: 79,
                   child: Center(
                     child: Text(
-                      AppLocalizations.of(context).new_run, 
+                      AppLocalizations.of(context).newRun, 
                       style: TextStyle(color: Colors.black54),
                     )
                   )
@@ -70,6 +81,7 @@ class HomePageState extends State<HomePage> {
             )
           ),
           TopicWidget(
+            id: 'start_training',
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -80,7 +92,7 @@ class HomePageState extends State<HomePage> {
                   flex: 79,
                   child: Center(
                     child: Text(
-                      AppLocalizations.of(context).new_training, 
+                      AppLocalizations.of(context).newTraining,
                       style: TextStyle(color: Colors.black54),
                     )
                   )
@@ -92,8 +104,8 @@ class HomePageState extends State<HomePage> {
               ]
             )
           ),
-
           TopicWidget(
+            id: 'history',
             child: ListView(
                   shrinkWrap: true,
                   children: <Widget>[
@@ -107,7 +119,7 @@ class HomePageState extends State<HomePage> {
                           flex: 80,
                           child: Center(
                             child: Text(
-                              AppLocalizations.of(context).last_runs, 
+                              AppLocalizations.of(context).lastRuns, 
                               style: TextStyle(color: Colors.black54)
                             )
                           )
