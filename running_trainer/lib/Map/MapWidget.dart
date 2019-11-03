@@ -9,7 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 /// A map widget with gps handler
 class MapWidget extends StatefulWidget {
   // ignore: public_member_api_docs
-  MapWidget({@required this.track, Key key, this.height, this.width}) : super(key: key);
+  MapWidget({@required this.track, Key key, this.height, this.width, this.trackLocation = false, this.autoZoom = true}) : super(key: key);
 
   /// The track that should be shown
   final Track track;
@@ -17,6 +17,10 @@ class MapWidget extends StatefulWidget {
   final double height;
   /// The width of the map widget
   final double width;
+  /// Automatically zoom to the current location
+  final bool autoZoom; 
+  /// Track the current location in the given track
+  final bool trackLocation;
 
   @override
   MapWidgetState createState() => MapWidgetState();
@@ -34,9 +38,11 @@ class MapWidgetState extends State<MapWidget> {
   @override
   void initState() {
     _gps.streamLocation((Position pos) {
-      print('Accuracy: ${pos.accuracy}m\nSpeed: ${pos.speed}\n');
       setState(() => _accuracy = pos.accuracy);
-      if (_controller.isCompleted) {
+      if (_controller.isCompleted && widget.autoZoom) {
+        if(widget.trackLocation) {
+          widget.track.addPosition(pos);
+        }
         _mapController.animateCamera(
           CameraUpdate.newCameraPosition(
             CameraPosition(

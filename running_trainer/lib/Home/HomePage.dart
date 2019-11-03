@@ -6,6 +6,7 @@ import 'package:running_trainer/Home/Topic/TopicWidget.dart';
 import 'package:running_trainer/Home/Overview/OverviewWidget.dart';
 import 'package:running_trainer/Utils/history.dart';
 import 'package:running_trainer/Utils/localizations.dart';
+import 'package:running_trainer/exampleWidget.dart';
 
 /// The home page view with the list of options
 class HomePage extends StatefulWidget {
@@ -82,6 +83,12 @@ class HomePageState extends State<HomePage> {
           ),
           TopicWidget(
             id: 'start_training',
+            onTap: () => Navigator.push(
+              context, 
+              MaterialPageRoute(builder: (context) => Scaffold(
+                body: MyApp()
+              ))
+            ),
             child: Row(
               children: <Widget>[
                 Expanded(

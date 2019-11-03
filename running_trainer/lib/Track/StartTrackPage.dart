@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:running_trainer/Home/Topic/TopicWidget.dart';
 import 'package:running_trainer/Map/MapWidget.dart';
 import 'package:running_trainer/Start/StartButton.dart';
+import 'package:running_trainer/Track/TrackPage.dart';
 import 'package:running_trainer/Utils/history.dart';
 import 'package:running_trainer/Utils/localizations.dart';
 import 'package:running_trainer/Utils/track.dart';
@@ -20,7 +21,6 @@ class StartTrackPageState extends State<StartTrackPage> {
   Track _track = Track();
   TextEditingController _routeController;
   String _currentRoute;
-  //FocusNode _input; 
   
   @override
   void initState() {
@@ -132,7 +132,16 @@ class StartTrackPageState extends State<StartTrackPage> {
                         padding: EdgeInsets.only(top: 10),
                         child: StartButton(
                           enabled: _readyToStart,
-                          onPressed: () => print('pressed'),
+                          onPressed: () { 
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context, 
+                              MaterialPageRoute(builder: (context) => Scaffold(
+                                body: TrackPage(track: Track(name: _currentName))
+                              ))
+                            );
+                            
+                          }
                         ),
                       )
                     ]

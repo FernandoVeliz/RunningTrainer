@@ -34,7 +34,11 @@ class AppLocalizations {
       'setName': 'Benenne die Strecke oder wähle eine alte aus:',
       'or': 'oder',
       'newRoute': 'Neu route',
-      'lastRoutes': 'Alte Route'
+      'lastRoutes': 'Alte Route',
+      'kmh': 'km/h',
+      'min': 'min',
+      'km': 'km',
+      'sec': 'sec',
     },
     'en': {
       'title': 'Trackning Trainer',
@@ -59,6 +63,10 @@ class AppLocalizations {
       'or': 'or',
       'newRoute': 'New route',
       'lastRoutes': 'Old route',
+      'kmh': 'km/h',
+      'min': 'min',
+      'km': 'km',
+      'sec': 'sec',
     }
   };
   // All getters
@@ -170,6 +178,26 @@ class AppLocalizations {
   // ignore: public_member_api_docs
   String get lastRoutes {
     return _localizedValues[locale.languageCode]['lastRoutes'];
+  }
+
+  // ignore: public_member_api_docs
+  String get kmh {
+    return _localizedValues[locale.languageCode]['kmh'];
+  }
+
+  // ignore: public_member_api_docs
+  String get min {
+    return _localizedValues[locale.languageCode]['min'];
+  }
+
+  // ignore: public_member_api_docs
+  String get km {
+    return _localizedValues[locale.languageCode]['km'];
+  }
+
+  // ignore: public_member_api_docs
+  String get sec {
+    return _localizedValues[locale.languageCode]['sec'];
   }
   // end all getters
 }

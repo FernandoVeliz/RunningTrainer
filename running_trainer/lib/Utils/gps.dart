@@ -1,9 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
-import 'package:latlong/latlong.dart';
 import 'package:geolocator/geolocator.dart';
-
 
 
 class Gps {
@@ -24,7 +21,6 @@ class Gps {
   }
 
   /// Closes the location stream
-  @required
   void cancel() {
     _locationStream?.cancel();
     _locationStream = null;

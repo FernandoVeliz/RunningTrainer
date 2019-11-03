@@ -17,6 +17,7 @@ dependencies:
   numberpicker: ^1.1.0
   google_maps_flutter: ^0.5.21+8
   latlong: ^0.6.1
+  sliding_up_panel: ^0.3.6
 
 dev_dependencies:
   flutter_test:

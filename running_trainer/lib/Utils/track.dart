@@ -18,7 +18,7 @@ class Line {
   /// The distance in km
   double get distance {
     final Distance _distance = Distance(roundResult: false);
-    return _distance.as(LengthUnit.Kilometer, start, end);
+    return _distance.as(LengthUnit.Kilometer, start, end).abs();
   }
 }
 
@@ -35,7 +35,7 @@ class Track {
   /// The end time of this track
   DateTime end;
 
-  /// The active trackning time 
+  /// The active tracking time 
   Duration activeTime;
 
   /// The distance in km
@@ -47,12 +47,16 @@ class Track {
   /// All tracked positions
   List<Position> _positions;
 
+  /// Update listener
+  Function() onUpdate;
+
   /// Creates a new track
   Track({this.name, this.start, this.end, this.activeTime, this.distance, this.averageSpeed}) {
     if (start == null) {
       start = DateTime.now();
       activeTime = Duration(seconds: 0);
       distance = 0;
+      averageSpeed = 0;
     }
     _id = start.toIso8601String();
     if (!isFinished) {
@@ -95,6 +99,10 @@ class Track {
     else {
       start = pos.timestamp;
     }
+    if (onUpdate != null) {
+      print('update');
+      onUpdate();
+    }
   }
 
   /// Calculates the average speed in km/h
@@ -105,7 +113,7 @@ class Track {
 
   /// Calculates the active trackning time
   Duration calculateActiveTime() {
-    return start.difference(_positions[_positions.length - 1].timestamp);
+    return start.difference(_positions[_positions.length - 1].timestamp).abs();
   }
 
   /// Adds a new distance to the current distance
